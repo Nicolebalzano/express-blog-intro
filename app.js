@@ -21,6 +21,7 @@ const bacheca = JSON.parse(dataJson);
 app.get("/bacheca", (req, res) => {
 const resData = {
     data : bacheca,
+    numeroPost : bacheca.length
 };
  res.json(resData)
 })
