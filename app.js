@@ -1,0 +1,83 @@
+import express from "express";
+const port = 3000;
+const app = express();
+
+app.use(express.static("public"));
+app.get("/", (req, res) => {
+    const resData = {
+        data : "Server del mio blog"
+    }
+    res.json(resData)
+})
+
+// - Creiamo il progetto base con una rotta `/` che ritorna un testo semplice con scritto ”Server del mio blog”
+// - Creiamo un array dove inserire una lista di almeno 5 post, 
+// per ognuno indicare titolo, contenuto, immagine e tags (tags è un array di stringhe)
+// - Creiamo poi una rotta `/bacheca` che restituisca un oggetto json con la lista dei post e il conteggio,
+//  partendo da un array.
+// - Configuriamo gli asset statici sull’applicazione in modo che si possano visualizzare le immagini associate
+//  ad ogni post.
+// - Testare su postman
+app.get("/", (req, res) => {
+const myBlog = [
+  {
+    "titolo": "Il Cervello: Un Universo di Connessioni",
+    "contenuto": "Ogni pensiero, emozione e azione nasce da una complessa rete di neuroni che comunicano tra loro attraverso impulsi elettrici e chimici. La neuroscienza ci aiuta a capire come funzionano queste connessioni e come influenzano il nostro comportamento. Scoprire di più sul cervello significa avvicinarsi a una delle più grandi meraviglie della creazione.",
+    "immagine": "img/IlCervellocheSente.png",
+    "tags": [
+      "Neuroscienza",
+      "Cervello",
+      "ConnessioniNeurali",
+      "Scienza"
+    ]
+  },
+  {
+    "titolo": "Memoria e Apprendimento: Come il Cervello Archivia il Passato",
+    "contenuto": "Ogni esperienza che viviamo lascia una traccia nel nostro cervello. La memoria e l'apprendimento si basano su meccanismi complessi di plasticità sinaptica, che permettono alle nostre capacità cognitive di evolversi. Vuoi migliorare la tua memoria? Scopri strategie basate sulla neuroscienza!",
+    "immagine": "img/MemoriaeApprendimento.png",
+    "tags": [
+      "Neuroscienza",
+      "Memoria",
+      "Apprendimento",
+      "PlasticitàCerebrale"
+    ]
+  },
+  {
+    "titolo": "Emozioni e Neuroscienza: Il Cervello che Sente",
+    "contenuto": "La neuroscienza affettiva studia come il cervello elabora le emozioni, dalla felicità alla paura. Il sistema limbico è il cuore delle nostre risposte emotive, influenzando le nostre decisioni e relazioni. Conoscere meglio questi meccanismi ci aiuta a gestire le emozioni con maggiore consapevolezza.",
+    "immagine": "img/UniversodiConnessioni.png",
+    "tags": [
+      "Neuroscienza",
+      "Emozioni",
+      "Psicologia",
+      "SistemaLimbico"
+    ]
+  },
+  {
+    "titolo": "Il Sonno e il Cervello: Perché Dormire è Fondamentale",
+    "contenuto": "Il sonno non è solo riposo: è un processo attivo in cui il cervello rafforza la memoria, elimina tossine e regola le emozioni. La neuroscienza del sonno ci svela perché una buona qualità del riposo è essenziale per la salute mentale e fisica.",
+    "immagine": "img/PerchéDormireèFondamentale.png",
+    "tags": [
+      "Neuroscienza",
+      "Sonno",
+      "Riposo",
+      "SaluteMentale"
+    ]
+  },
+  {
+    "titolo": "Intelligenza Artificiale e Neuroscienza: Un Dialogo tra Umano e Macchina",
+    "contenuto": "Le neuroscienze ispirano lo sviluppo dell’intelligenza artificiale, cercando di simulare i processi cognitivi del cervello umano. Le reti neurali artificiali sono modellate sulla nostra biologia, aprendo scenari affascinanti per il futuro della tecnologia.",
+    "immagine": "img/UnDialogotraUmanoeMacchina.png",
+    "tags": [
+      "Neuroscienza",
+      "AI",
+      "retiNeurali",
+      "Tecnologia"
+    ]
+  }
+]
+ res.json(myBlog)
+})
+app.listen(port, () => {
+    console.log("Server in ascolto")
+})

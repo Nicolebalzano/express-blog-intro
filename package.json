@@ -1,0 +1,23 @@
+{
+  "name": "express-blog-intro",
+  "version": "1.0.0",
+  "description": "This is my first blog :)",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node --watch app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicolebalzano/express-blog-intro.git"
+  },
+  "type": "module",
+  "author": "Nicole Balzano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nicolebalzano/express-blog-intro/issues"
+  },
+  "homepage": "https://github.com/Nicolebalzano/express-blog-intro#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
